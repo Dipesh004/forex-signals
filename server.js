@@ -184,7 +184,7 @@ const comparingRoundNumbersEurUsd = async () => {
 
 cron.schedule("0 8 * * *", settingRoundNumbersEurUsd);
 cron.schedule("0 20 * * *", settingRoundNumbersEurUsd);
-cron.schedule("*/7 * * * *", comparingRoundNumbersEurUsd);
+cron.schedule("0,7,14,21,28,35,42,49,56 * * * *", comparingRoundNumbersEurUsd);
 // settingRoundNumbersEurUsd().then(() => comparingRoundNumbersEurUsd());
 //
 //
@@ -361,7 +361,7 @@ const comparingRoundNumbersUsdJpy = async () => {
 
 cron.schedule("3 8 * * *", settingRoundNumbersUsdJpy);
 cron.schedule("3 20 * * *", settingRoundNumbersUsdJpy);
-cron.schedule("*/7 * * * *", comparingRoundNumbersUsdJpy);
+cron.schedule("1,8,15,22,29,36,43,50,57 * * * *", comparingRoundNumbersUsdJpy);
 // settingRoundNumbersUsdJpy().then(() => comparingRoundNumbersUsdJpy());
 //
 //
@@ -538,7 +538,7 @@ const comparingRoundNumbersGbpUsd = async () => {
 
 cron.schedule("5 8 * * *", settingRoundNumbersGbpUsd);
 cron.schedule("5 20 * * *", settingRoundNumbersGbpUsd);
-cron.schedule("*/7 * * * *", comparingRoundNumbersGbpUsd);
+cron.schedule("2,9,16,23,30,37,44,51,58 * * * *", comparingRoundNumbersGbpUsd);
 // settingRoundNumbersGbpUsd().then(() => comparingRoundNumbersGbpUsd());
 app.get("/", async (req, res) => {
   res.status(200).send("Forex Price demo");
