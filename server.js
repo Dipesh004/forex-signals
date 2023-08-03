@@ -184,7 +184,7 @@ const comparingRoundNumbersEurUsd = async () => {
 
 cron.schedule("0 8 * * *", settingRoundNumbersEurUsd);
 cron.schedule("0 20 * * *", settingRoundNumbersEurUsd);
-cron.schedule("*/7 * * * *", comparingRoundNumbersGbpUsd);
+cron.schedule("*/7 * * * *", comparingRoundNumbersEurUsd);
 // settingRoundNumbersEurUsd().then(() => comparingRoundNumbersEurUsd());
 //
 //
