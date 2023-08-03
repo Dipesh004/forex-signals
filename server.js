@@ -3,10 +3,12 @@ const cron = require("node-cron");
 const MiddleWares = require("./extra");
 const nodemailer = require("nodemailer");
 const { default: axios } = require("axios");
+const moment = require("moment-timezone");
 
 const app = express();
 MiddleWares(app);
 
+const indianTime = moment.tz("Asia/Kolkata");
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -16,7 +18,10 @@ const transporter = nodemailer.createTransport({
 });
 let eurUsdRoundNumbersArray;
 const settingRoundNumbersEurUsd = async () => {
-  console.log("Cron job settinground eurusd is running at:", new Date().toISOString());
+  console.log(
+    "Cron job settinground eurusd is running at:",
+    new Date().toISOString()
+  );
   // Put your code or function call here to be executed at the specified interval.
   //api call to fetch current market price
   const options = {
@@ -182,9 +187,15 @@ const comparingRoundNumbersEurUsd = async () => {
   }
 };
 
-cron.schedule("4 8 * * *", settingRoundNumbersEurUsd);
-cron.schedule("31 20 * * *", settingRoundNumbersEurUsd);
-cron.schedule("0,7,14,21,28,35,42,49,56 * * * *", comparingRoundNumbersEurUsd);
+cron.schedule("4 8 * * *", settingRoundNumbersEurUsd, {
+  timezone: indianTime,
+});
+cron.schedule("31 20 * * *", settingRoundNumbersEurUsd, {
+  timezone: indianTime,
+});
+cron.schedule("0,7,14,21,28,35,42,49,56 * * * *", comparingRoundNumbersEurUsd, {
+  timezone: indianTime,
+});
 // settingRoundNumbersEurUsd().then(() => comparingRoundNumbersEurUsd());
 //
 //
@@ -193,8 +204,10 @@ cron.schedule("0,7,14,21,28,35,42,49,56 * * * *", comparingRoundNumbersEurUsd);
 //
 let usdJpyRoundNumbersArray;
 const settingRoundNumbersUsdJpy = async () => {
-
-  console.log("Cron job settingroundnumber usdjpy is running at:", new Date().toISOString());
+  console.log(
+    "Cron job settingroundnumber usdjpy is running at:",
+    new Date().toISOString()
+  );
   // Put your code or function call here to be executed at the specified interval.
   //api call to fetch current market price
   const options = {
@@ -360,9 +373,15 @@ const comparingRoundNumbersUsdJpy = async () => {
   }
 };
 
-cron.schedule("3 8 * * *", settingRoundNumbersUsdJpy);
-cron.schedule("32 20 * * *", settingRoundNumbersUsdJpy);
-cron.schedule("1,8,15,22,29,36,43,50,57 * * * *", comparingRoundNumbersUsdJpy);
+cron.schedule("3 8 * * *", settingRoundNumbersUsdJpy, {
+  timezone: indianTime,
+});
+cron.schedule("32 20 * * *", settingRoundNumbersUsdJpy, {
+  timezone: indianTime,
+});
+cron.schedule("1,8,15,22,29,36,43,50,57 * * * *", comparingRoundNumbersUsdJpy, {
+  timezone: indianTime,
+});
 // settingRoundNumbersUsdJpy().then(() => comparingRoundNumbersUsdJpy());
 //
 //
@@ -370,7 +389,10 @@ cron.schedule("1,8,15,22,29,36,43,50,57 * * * *", comparingRoundNumbersUsdJpy);
 //
 let gbpUsdRoundNumbersArray;
 const settingRoundNumbersGbpUsd = async () => {
-  console.log("Cron job settinground gbpusdis running at:", new Date().toISOString());
+  console.log(
+    "Cron job settinground gbpusdis running at:",
+    new Date().toISOString()
+  );
   // Put your code or function call here to be executed at the specified interval.
   //api call to fetch current market price
   const options = {
@@ -537,9 +559,15 @@ const comparingRoundNumbersGbpUsd = async () => {
   }
 };
 
-cron.schedule("5 8 * * *", settingRoundNumbersGbpUsd);
-cron.schedule("33 20 * * *", settingRoundNumbersGbpUsd);
-cron.schedule("2,9,16,23,30,37,44,51,58 * * * *", comparingRoundNumbersGbpUsd);
+cron.schedule("5 8 * * *", settingRoundNumbersGbpUsd, {
+  timezone: indianTime,
+});
+cron.schedule("33 20 * * *", settingRoundNumbersGbpUsd, {
+  timezone: indianTime,
+});
+cron.schedule("2,9,16,23,30,37,44,51,58 * * * *", comparingRoundNumbersGbpUsd, {
+  timezone: indianTime,
+});
 // settingRoundNumbersGbpUsd().then(() => comparingRoundNumbersGbpUsd());
 app.get("/", async (req, res) => {
   res.status(200).send("Forex Price demo");
