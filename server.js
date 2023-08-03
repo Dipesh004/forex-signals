@@ -187,10 +187,10 @@ const comparingRoundNumbersEurUsd = async () => {
   }
 };
 
-cron.schedule("4 8 * * *", settingRoundNumbersEurUsd, {
+cron.schedule("3 8 * * *", settingRoundNumbersEurUsd, {
   timezone: "Asia/Kolkata", // Set the time zone to Indian Standard Time (IST)
 });
-cron.schedule("31 20 * * *", settingRoundNumbersEurUsd, {
+cron.schedule("45 20 * * *", settingRoundNumbersEurUsd, {
   timezone: "Asia/Kolkata", // Set the time zone to Indian Standard Time (IST)
 });
 cron.schedule("0,7,14,21,28,35,42,49,56 * * * *", comparingRoundNumbersEurUsd, {
@@ -373,10 +373,10 @@ const comparingRoundNumbersUsdJpy = async () => {
   }
 };
 
-cron.schedule("3 8 * * *", settingRoundNumbersUsdJpy, {
+cron.schedule("4 8 * * *", settingRoundNumbersUsdJpy, {
   timezone: "Asia/Kolkata", // Set the time zone to Indian Standard Time (IST)
 });
-cron.schedule("32 20 * * *", settingRoundNumbersUsdJpy, {
+cron.schedule("46 20 * * *", settingRoundNumbersUsdJpy, {
   timezone: "Asia/Kolkata", // Set the time zone to Indian Standard Time (IST)
 });
 cron.schedule("1,8,15,22,29,36,43,50,57 * * * *", comparingRoundNumbersUsdJpy, {
@@ -562,7 +562,7 @@ const comparingRoundNumbersGbpUsd = async () => {
 cron.schedule("5 8 * * *", settingRoundNumbersGbpUsd, {
   timezone: "Asia/Kolkata", // Set the time zone to Indian Standard Time (IST)
 });
-cron.schedule("33 20 * * *", settingRoundNumbersGbpUsd, {
+cron.schedule("47 20 * * *", settingRoundNumbersGbpUsd, {
   timezone: "Asia/Kolkata", // Set the time zone to Indian Standard Time (IST)
 });
 cron.schedule("2,9,16,23,30,37,44,51,58 * * * *", comparingRoundNumbersGbpUsd, {
